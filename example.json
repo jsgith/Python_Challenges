@@ -1,0 +1,25 @@
+{
+    "inputImage": "image.png",
+    "operations": [
+        {
+            "operationType": "Resize",
+            "width": 800,
+            "height": 600,
+            "preserveAspectRatio": true
+        },
+        {
+            "operationType": "Blur",
+            "radius": 3
+        },
+	{
+            "operationType": "Invert"
+        },
+	{
+            "operationType": "DrawBox",
+	    "width": 100,
+            "height": 100,
+	    "color": "#ffff00"
+        }
+    ],
+    "outputImage": "output.jpg"
+}

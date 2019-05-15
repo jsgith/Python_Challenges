@@ -1,0 +1,102 @@
+Programming challenge
+===============================
+
+Specification
+-------------
+
+In this challenge, we're looking at image manipulation in Python.
+
+We would like you to write a command-line Python program that can do the following:
+	- Read a specification JSON file describing a series of image operations (format described
+	  in the "JSON Format" section below)
+	- Load the image(s) specified in the JSON file
+	- Apply the operations in the correct order
+	- Save the output to the location specified in the JSON file
+
+The command-line syntax to run your program should be similar to:
+
+	python your_program.py specification.json
+
+If the program is run with an incorrect number of arguments it should display a brief help
+text.
+
+You should write this program for Python 3.6 or later.
+
+You may use any libraries available through pip, but we would prefer you to use the standard 
+library where possible. 
+
+
+JSON Format
+-----------
+
+The JSON file will use UTF-8 encoding.
+
+The JSON file will consist of a single object with the following members:
+
+	- inputImage: The input image file path as a string
+	- operations: An array of operation objects to be performed
+	- outputImage: The output image file path as a string
+
+The operation objects will contain the following members:
+
+	- operationType: One of the operation type strings defined in the "Image Operations" section
+	  below
+	- Any further members as specified in the "Image Operations" section below
+
+An example JSON file is included.
+
+
+Image Operations
+----------------
+
+Operation type: Resize
+Description: Change the size of the image
+Additional parameters: 
+	- width: New width of image, in pixels
+	- height: New height of image, in pixels
+	- preserveAspectRatio: If false, stretch the image to fit the given size. If true, resize so
+	  the output fits inside the defined size (e.g. 10x20 resized to 30x30 should become 15x30).
+
+Operation type: Blur
+Description: Apply a gaussian blur to the image
+Additional parameters:
+	- radius: Radius of the blur
+
+Operation type: Invert
+Description: Invert the colours of the image (i.e. produce a negative image)
+Additional parameters: None
+
+Operation type: DrawBox
+Description: Draw an unfilled box of the specified size and colour in the specified position
+	- position: An array defining the x and y coordinates of the top left corner of the box, in pixels
+	- size: An array defining the width and height of the box, in pixels
+	- colour: A string defining the colour of the outline in 6-digit HTML hex format 
+	  (e.g. #ffff00 is yellow, #808080 is a medium grey)
+
+
+Your Submission
+---------------
+
+Please state which third-party library versions you have tested with on your submission. If 
+you have not used any Python image manipulation libraries before we recommend you start with
+Pillow: https://pillow.readthedocs.io/en/latest/.
+
+Submissions will be assessed on the following criteria:
+
+	* Correctness - The program should operate correctly as described above
+	* Quality - The program should be written with readability and reliability in mind
+	* Efficiency - The program should be reasonably fast
+	* Elegance - The program should be concise and simple, but not at the expense of readability
+  
+
+Hints
+-----
+
+The provided example does not cover all of the functionality described above, but all of the
+functionality will be tested.
+
+Consider how you might extend your program to support additional image operations in the future.
+
+Documentation is always good.
+
+An appropriate level of error handling is also good.
